@@ -48,13 +48,13 @@ const AddsCoffee = () => {
             <form onSubmit={handleAddCoffee}>
                 {/* form row */}
                 <div className=" md:flex mb-4">
-                    <div className="form-control w-1/2">
+                    <div className="form-control md:w-1/2">
                         <label className="label">
                             <span className="label-text">Coffee Name</span>
                         </label>
                         <input type="text" name="name" placeholder="Coffee Name" className="input input-bordered w-full" required />
                     </div>
-                    <div className="form-control w-1/2 ml-4">
+                    <div className="form-control md:w-1/2 md:ml-4">
                         <label className="label">
                             <span className="label-text">Available Quantity</span>
                         </label>
@@ -63,13 +63,13 @@ const AddsCoffee = () => {
                 </div>
                 {/* form supplier row */}
                 <div className=" md:flex mb-4">
-                    <div className="form-control w-1/2">
+                    <div className="form-control md:w-1/2">
                         <label className="label">
                             <span className="label-text">Supplier Name</span>
                         </label>
                         <input type="text" name="supplier" placeholder="Supplier Name" className="input input-bordered w-full" required />
                     </div>
-                    <div className="form-control w-1/2 ml-4">
+                    <div className="form-control md:w-1/2 md:ml-4">
                         <label className="label">
                             <span className="label-text">Taste</span>
                         </label>
@@ -78,13 +78,13 @@ const AddsCoffee = () => {
                 </div>
                 {/* form category and details row */}
                 <div className=" md:flex mb-4">
-                    <div className="form-control w-1/2">
+                    <div className="form-control md:w-1/2">
                         <label className="label">
                             <span className="label-text">Category</span>
                         </label>
                         <input type="text" name="category" placeholder="Category" className="input input-bordered w-full" required />
                     </div>
-                    <div className="form-control w-1/2 ml-4">
+                    <div className="form-control md:w-1/2 md:ml-4">
                         <label className="label">
                             <span className="label-text">Details</span>
                         </label>

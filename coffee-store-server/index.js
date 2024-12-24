@@ -28,10 +28,11 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
-    // await client.connect();
+    //  await client.connect();
 
     const coffeeCollection = client.db("coffeeDB").collection("coffee");
-    const userCollection = client.db("coffeeDB").collection("user")
+    const userCollection = client.db("coffeeDB").collection("user");
+    const contactCollection = client.db("coffeeDB").collection("contact");
     //all data paoyer jonno
     app.get('/coffee/', async (req, res) => {
       const cursor = coffeeCollection.find();
@@ -126,6 +127,32 @@ async function run() {
       res.send(result)
     })
 
+    //user contact
+    app.get('/contact', async(req, res) =>{
+      const cursor = contactCollection.find();
+      const result = await cursor.toArray()
+      res.send(result)
+    })
+    app.get('/contact/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await contactCollection.findOne(query);
+      res.send(result);
+    })
+
+    app.post('/contact', async (req, res) => {
+      const newContact = req.body;
+      console.log(newContact);
+      const result = await contactCollection.insertOne(newContact);
+      res.send(result)
+
+    })
+    app.delete('/contact/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await contactCollection.deleteOne(query);
+      res.send(result)
+    })
 
     // Send a ping to confirm a successful connection
     // await client.db("admin").command({ ping: 1 });

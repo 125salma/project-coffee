@@ -45,28 +45,30 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
   }
 
   return (
-    <div className="card card-side bg-base-100 shadow-xl">
+    <div className="card card-side bg-[#F5F4F1] shadow-xl  p-4  ">
       <figure>
         <img
           src={photo}
           alt="Movie" />
       </figure>
-      <div className=" flex justify-between w-full pr-4">
+      <div className=" md:flex justify-between items-center w-full pr-4">
         <div>
-          <h2 className="card-title">Name: {name}</h2>
-          <p>{quantity}</p>
-          <p>{supplier}</p>
-          <p>{taste}</p>
+          <h2 className="card-title"> {name}</h2>
+          <p>Quantity: {quantity}</p>
+          <p>Supplier: {supplier}</p>
+          <p>Taste: {taste}</p>
 
         </div>
 
-        <div className="card-actions justify-end">
-          <div className="join join-vertical space-y-4">
-            <button className="btn ">View</button>
-            <Link to={`/updateCoffee/${_id}`}>
-              <button className="btn ">Edit</button>
+        <div className="card-actions md:justify-end">
+          <div className="md:join join-vertical">
+            <Link to={`/singleCoffee/${_id}`}>
+            <button className="btn bg-[#E3B577]">View</button>
             </Link>
-            <button onClick={() => handleDelete(_id)} className="btn bg-orange-600">Delete</button>
+            <Link to={`/updateCoffee/${_id}`}>
+              <button className="btn bg-blue-400 mt-4 mb-4">Edit</button>
+            </Link>
+            <button onClick={() => handleDelete(_id)} className="btn bg-red-400 ">Delete</button>
           </div>
         </div>
       </div>

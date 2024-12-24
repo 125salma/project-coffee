@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 
 const UpdatesCoffee = () => {
     const coffee = useLoaderData();
-    const { _id, name, quantity, supplier, taste, category, details, photo } = coffee
+    const { _id, name, quantity, supplier, taste, category, details, photo } = coffee;
 
 
     const handleUpdateCoffee = e => {
@@ -50,13 +50,13 @@ const UpdatesCoffee = () => {
             <form onSubmit={handleUpdateCoffee}>
                 {/* form row */}
                 <div className=" md:flex mb-4">
-                    <div className="form-control w-1/2">
+                    <div className="form-control md:w-1/2">
                         <label className="label">
                             <span className="label-text">Coffee Name</span>
                         </label>
                         <input type="text" name="name" defaultValue={name} placeholder="Coffee Name" className="input input-bordered w-full" required />
                     </div>
-                    <div className="form-control w-1/2 ml-4">
+                    <div className="form-control md:w-1/2 md:ml-4">
                         <label className="label">
                             <span className="label-text">Available Quantity</span>
                         </label>
@@ -65,13 +65,13 @@ const UpdatesCoffee = () => {
                 </div>
                 {/* form supplier row */}
                 <div className=" md:flex mb-4">
-                    <div className="form-control w-1/2">
+                    <div className="form-control md:w-1/2">
                         <label className="label">
                             <span className="label-text">Supplier Name</span>
                         </label>
                         <input type="text" name="supplier" defaultValue={supplier} placeholder="Supplier Name" className="input input-bordered w-full" required />
                     </div>
-                    <div className="form-control w-1/2 ml-4">
+                    <div className="form-control md:w-1/2 md:ml-4">
                         <label className="label">
                             <span className="label-text">Taste</span>
                         </label>
@@ -80,13 +80,13 @@ const UpdatesCoffee = () => {
                 </div>
                 {/* form category and details row */}
                 <div className=" md:flex mb-4">
-                    <div className="form-control w-1/2">
+                    <div className="form-control md:w-1/2">
                         <label className="label">
                             <span className="label-text">Category</span>
                         </label>
                         <input type="text" name="category" defaultValue={category} placeholder="Category" className="input input-bordered w-full" required />
                     </div>
-                    <div className="form-control w-1/2 ml-4">
+                    <div className="form-control md:w-1/2 md:ml-4">
                         <label className="label">
                             <span className="label-text">Details</span>
                         </label>

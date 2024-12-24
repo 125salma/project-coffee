@@ -13,25 +13,35 @@ import SignIn from './components/SignIn.jsx';
 import AuthProvider from './providers/AuthProvider.jsx';
 import Users from './components/Users.jsx';
 import Main from './components/Main.jsx';
+import SingleCoffee from './components/SingleCoffee.jsx';
+import PrivateRoute from './providers/PrivateRoute.jsx';
+import ErrorPage from './components/ErrorPage.jsx';
+import ContactUser from './components/ContactUser.jsx';
 const router = createBrowserRouter([
-  
+
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
-        element: <App></App>,
+        element: <PrivateRoute><App></App></PrivateRoute>,
         loader: () => fetch('https://coffee-store-server-eight-tau.vercel.app/coffee')
       },
       {
-        path: "addCoffee",
+        path: "/addCoffee",
         element: <AddsCoffee></AddsCoffee>
       },
       {
-        path: "updateCoffee/:id",
+        path: "/singleCoffee/:id",
+        element: <SingleCoffee></SingleCoffee>,
+        loader: ({ params }) => fetch(`https://coffee-store-server-eight-tau.vercel.app/coffee/${params.id}`)
+      },
+      {
+        path: "/updateCoffee/:id",
         element: <UpdatesCoffee></UpdatesCoffee>,
-        loader: ({params}) => fetch(`https://coffee-store-server-eight-tau.vercel.app/coffee/${params.id}`)
+        loader: ({ params }) => fetch(`https://coffee-store-server-eight-tau.vercel.app/coffee/${params.id}`)
       },
       {
         path: '/signUp',
@@ -45,6 +55,11 @@ const router = createBrowserRouter([
         path: '/users',
         element: <Users></Users>,
         loader: () => fetch('https://coffee-store-server-eight-tau.vercel.app/user')
+      },
+      {
+        path: '/contacts',
+        element: <ContactUser></ContactUser>,
+        loader:() => fetch('https://coffee-store-server-eight-tau.vercel.app/contact')
       }
     ]
   },
@@ -55,7 +70,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </AuthProvider>
   </StrictMode>,
 )
